@@ -1,11 +1,14 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import CountryCards from "./components/CountryCards";
+// import CountryCards from "./components/CountryCards";
 
 function App() {
   const [data, setData] = useState([]);
   const [input, setInput] = useState("");
   const [serachData, setSearchData] = useState([]);
+
+  // console.log(data)
+  console.log(serachData);
 
   useEffect(() => {
     // console.log('main useEffect running')
@@ -42,16 +45,19 @@ function App() {
         />
       </div>
       <div className="flags-wrapper">
-        {data.length ? (
-          serachData.map((data) => (
-            <CountryCards key={data.name.common} {...data} />
-          ))
-        ) : (
-          <div>
-            <h2>Countries Information</h2>
-            <p>Loading...</p>
-          </div>
-        )}
+        {serachData.map((item) => {
+          return (
+            <div key={item.name.common} className="card">
+              <img
+                src={item.flags.png}
+                alt={`Country flag ${item.flags.alt}`}
+                height={100}
+                width={100}
+              />
+              <p>{item.name.common}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
