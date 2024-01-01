@@ -1,0 +1,14 @@
+.card{
+    margin: 10px;
+    padding-top: 10px;
+    border: solid 0.8px gray;
+    border-radius: 10px;
+    width: 150px;
+    height: fit-content;
+    text-align: center;
+    
+}
+
+img{
+    object-fit: cover;
+}
